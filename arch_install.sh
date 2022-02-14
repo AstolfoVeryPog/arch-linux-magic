@@ -60,7 +60,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
-     nitrogen picom python-pywal htop \
+     nitrogen picom python-pywal htop python \
      zip unzip unrar youtube-dl discord \
      dosfstools ntfs-3g git pipewire pulseaudio \
      vim networkmanager sed i3 kitty firefox nvidia nvidai-settings
@@ -87,5 +87,5 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd
-yay -Sy spotify cava
+yay -S spotify cava cbonsai
 exit
