@@ -88,8 +88,5 @@ cd yay
 makepkg -si
 cd
 yay -S spotify cava cbonsai doas
-echo "permit $username as root" > /etc/doas.conf
-pacman -R sudo
 echo "exec i3" > .xinitrc
 exit
-# todo: remove sudo and install doas, create .xinitrc file
