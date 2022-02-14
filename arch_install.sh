@@ -61,7 +61,7 @@ pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
-     zip unzip unrar youtube-dl discord \
+     zip unzip unrar youtube-dl discord chromium \
      dosfstools ntfs-3g git pipewire pulseaudio \
      vim networkmanager sed i3 kitty firefox nvidia nvidia-settings
 
