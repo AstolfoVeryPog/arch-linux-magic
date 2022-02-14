@@ -81,5 +81,5 @@ exit
 
 #part3
 printf '\033c'
-echo "no"
+git clone https://github.com/linuxdotexe/nordic-wallpapers
 exit
