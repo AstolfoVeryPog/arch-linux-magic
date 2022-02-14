@@ -63,7 +63,7 @@ pacman -S xorg-server xorg-xinit \
      nitrogen picom python-pywal htop python \
      zip unzip unrar youtube-dl discord \
      dosfstools ntfs-3g git pipewire pulseaudio \
-     vim networkmanager sed i3 kitty firefox nvidia nvidai-settings
+     vim networkmanager sed i3 kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
