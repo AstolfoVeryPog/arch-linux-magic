@@ -57,11 +57,11 @@ pacman -S grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit xorg \
+pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar \
      nitrogen picom python-pywal \
-     zip unzip unrar youtube-dl \
+     zip unzip unrar youtube-dl discord \
      dosfstools ntfs-3g git pipewire \
      vim networkmanager sed i3 kitty firefox
 
@@ -69,7 +69,7 @@ systemctl enable NetworkManager.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
-useradd -m -G wheel -s /bin/zsh $username
+useradd -m -G wheel -s /bin/bash $username
 passwd $username
 echo "Pre-Installation Finish Reboot now"
 ai3_path=/home/$username/arch_install3.sh
@@ -81,5 +81,5 @@ exit
 
 #part3
 printf '\033c'
-
+echo "no"
 exit
