@@ -81,6 +81,7 @@ exit
 
 #part3
 printf '\033c'
+cd $HOME
 git clone https://github.com/linuxdotexe/nordic-wallpapers
 git clone https://aur.archlinux.org/yay.git
 cd yay
