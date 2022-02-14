@@ -60,7 +60,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar \
-     nitrogen picom python-pywal \
+     nitrogen picom python-pywal htop \
      zip unzip unrar youtube-dl discord \
      dosfstools ntfs-3g git pipewire \
      vim networkmanager sed i3 kitty firefox
@@ -82,4 +82,10 @@ exit
 #part3
 printf '\033c'
 git clone https://github.com/linuxdotexe/nordic-wallpapers
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -Sy spotify polybar cava
+git clone https://dl.suckless.org/tools/dmenu-5.1.tar.gz
+tar -xvzf dmenu-5.1.tar.gz 
 exit
