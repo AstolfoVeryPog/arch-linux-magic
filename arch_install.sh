@@ -26,7 +26,7 @@ swapon $swappartition
 mkdir -p /mnt/boot/efi
 mount $efipartition /mnt/boot/efi
 
-pacstrap /mnt base linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -83,7 +83,6 @@ exit
 #part3
 printf '\033c'
 cd $HOME
-pacman --noconfirm --needed -S base-devel 
 git clone https://github.com/linuxdotexe/nordic-wallpapers
 git clone https://aur.archlinux.org/yay.git
 cd yay
