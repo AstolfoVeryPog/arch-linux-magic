@@ -62,7 +62,7 @@ pacman -S xorg-server xorg-xinit \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
      zip unzip unrar youtube-dl discord  \
-     dosfstools ntfs-3g git  pulseaudio sddm plasma \
+     dosfstools ntfs-3g git pulseaudio sddm plasma \
      vim networkmanager kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
