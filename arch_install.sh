@@ -61,11 +61,12 @@ pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
-     zip unzip unrar youtube-dl discord chromium \
-     dosfstools ntfs-3g git pipewire pulseaudio \
-     vim networkmanager sed i3 kitty firefox nvidia nvidia-settings
+     zip unzip unrar youtube-dl discord  \
+     dosfstools ntfs-3g git  pulseaudio sddm plasma \
+     vim networkmanager kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
+systemctl enable sddm.service
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
