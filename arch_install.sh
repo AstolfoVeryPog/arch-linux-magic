@@ -26,7 +26,7 @@ swapon $swappartition
 mkdir -p /mnt/boot/efi
 mount $efipartition /mnt/boot/efi
 
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -52,17 +52,17 @@ echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 echo "0.0.0.0         tiktok.com" >> /etc/hosts
 passwd
 
-pacman -S grub efibootmgr os-prober
+pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit \
+pacman --noconfirm -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
      zip unzip unrar youtube-dl discord  \
-     dosfstools ntfs-3g git pulseaudio sddm plasma \
+     ntfs-3g git pulseaudio sddm plasma \
      vim networkmanager kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
@@ -83,6 +83,7 @@ exit
 #part3
 printf '\033c'
 cd $HOME
+pacman --noconfirm --needed -S base-devel 
 git clone https://github.com/linuxdotexe/nordic-wallpapers
 git clone https://aur.archlinux.org/yay.git
 cd yay
