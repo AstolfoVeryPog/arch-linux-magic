@@ -67,7 +67,7 @@ pacman --noconfirm -S xorg-server xorg-xinit \
 
 systemctl enable NetworkManager.service 
 systemctl enable sddm.service
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
 useradd -m -G wheel -s /bin/bash $username
@@ -88,7 +88,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd
-yay -S spotify cava cbonsai python-pywal ani-cli
+yay -S spotify cava cbonsai python-pywal ani-cli python-pywalfox
 sudo npm install peerflix -g
 sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
 sudo chmod +x /usr/local/bin/notflix
