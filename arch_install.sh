@@ -61,8 +61,8 @@ pacman --noconfirm -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
-     zip unzip unrar youtube-dl discord  \
-     ntfs-3g git pulseaudio sddm plasma \
+     zip unzip unrar youtube-dl discord npm \
+     ntfs-3g git pulseaudio sddm plasma thunar-volman \
      vim networkmanager kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
@@ -88,6 +88,9 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd
-yay -S spotify cava cbonsai doas
+yay -S spotify cava cbonsai python-pywal ani-cli
+sudo npm install peerflix -g
+sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
+sudo chmod +x /usr/local/bin/notflix
 echo "exec i3" > .xinitrc
 exit
