@@ -67,7 +67,7 @@ pacman --noconfirm -S xorg-server xorg-xinit \
 
 systemctl enable NetworkManager.service 
 systemctl enable sddm.service
-echo "%wheel ALL=(ALL:ALL) ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
 useradd -m -G wheel -s /bin/bash $username
