@@ -3,7 +3,6 @@
 printf '\033c'
 echo "Welcome to my fork of bugswriter's arch installer script"
 
-loadkeys pl
 timedatectl set-ntp true
 lsblk
 
@@ -57,40 +56,20 @@ pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman --noconfirm -S xorg-server xorg-xinit \
+pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      nitrogen picom python-pywal htop python \
      zip unzip unrar youtube-dl discord npm \
-     ntfs-3g git pulseaudio sddm plasma thunar-volman \
+     ntfs-3g git pulseaudio i3 thunar-volman \
      vim networkmanager kitty firefox nvidia nvidia-settings
 
 systemctl enable NetworkManager.service 
-systemctl enable sddm.service
+
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "Enter Username: "
 read username
 useradd -m -G wheel -s /bin/bash $username
 passwd $username
 echo "Pre-Installation Finish Reboot now"
-ai3_path=/home/$username/arch_install3.sh
-sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
-chown $username:$username $ai3_path
-chmod +x $ai3_path
-su -c $ai3_path -s /bin/sh $username
 exit 
-
-#part3
-printf '\033c'
-cd $HOME
-git clone https://github.com/linuxdotexe/nordic-wallpapers
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd
-yay -S spotify cava cbonsai python-pywal ani-cli python-pywalfox
-sudo npm install peerflix -g
-sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
-sudo chmod +x /usr/local/bin/notflix
-echo "exec i3" > .xinitrc
-exit
