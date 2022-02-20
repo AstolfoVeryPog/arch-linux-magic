@@ -59,7 +59,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
-     nitrogen picom python-pywal htop python \
+     python-pywal htop python \
      zip unzip unrar youtube-dl discord npm \
      ntfs-3g git pulseaudio thunar-volman \
      vim networkmanager kitty nvidia nvidia-settings
