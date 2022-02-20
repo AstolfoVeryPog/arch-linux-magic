@@ -60,7 +60,7 @@ pacman -S xorg-server xorg-xinit \
      noto-fonts noto-fonts-emoji qbittorrent  \
      mpv ffmpeg neofetch thunar flameshot \
      python-pywal htop \
-     zip unzip unrar youtube-dl discord npm \
+     youtube-dl discord npm \
      ntfs-3g git pulseaudio thunar-volman \
      vim networkmanager kitty nvidia nvidia-settings
 
