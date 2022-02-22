@@ -51,7 +51,7 @@ echo "127.0.1.1       $hostname" >> /etc/hosts
 echo "0.0.0.0         tiktok.com" >> /etc/hosts
 passwd
 
-pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools gvfs
+pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
