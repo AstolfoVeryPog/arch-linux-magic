@@ -21,11 +21,11 @@ read efipartition
 mkfs.fat -F 32 $efipartition
 
 mount $partition /mnt 
-swapon $swappartition
 mkdir -p /mnt/boot/efi
 mount $efipartition /mnt/boot/efi
+swapon $swappartition
 
-pacstrap /mnt base base-devel linux linux-firmware
+pacstrap /mnt base base-devel linux linux-firmware networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -47,22 +47,16 @@ echo $hostname > /etc/hostname
 
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
-echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
+echo "127.0.1.1       $hostname" >> /etc/hosts
 echo "0.0.0.0         tiktok.com" >> /etc/hosts
 passwd
 
-pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools
+pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools gvfs
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit \
-     noto-fonts noto-fonts-emoji qbittorrent  \
-     mpv ffmpeg neofetch thunar flameshot \
-     python-pywal htop \
-     youtube-dl discord npm \
-     ntfs-3g git pulseaudio thunar-volman \
-     vim networkmanager kitty nvidia nvidia-settings
+pacman -S xorg-server xorg-xinit htop vim alacritty pulseaudio mpv neofetch git ntfs-3g nvidia nvidia-settings noto-fonts-emoji
 
 systemctl enable NetworkManager.service 
 
