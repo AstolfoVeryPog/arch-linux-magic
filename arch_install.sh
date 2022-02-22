@@ -25,7 +25,7 @@ mkdir -p /mnt/boot/efi
 mount $efipartition /mnt/boot/efi
 swapon $swappartition
 
-pacstrap /mnt base base-devel linux linux-firmware networkmanager
+pacstrap /mnt base base-devel linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -56,7 +56,7 @@ pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools gvfs
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit htop vim alacritty pulseaudio mpv neofetch git ntfs-3g nvidia nvidia-settings noto-fonts-emoji
+pacman -S xorg-server xorg-xinit htop vim alacritty pulseaudio mpv neofetch git ntfs-3g nvidia nvidia-settings i3 rofi picom noto-fonts-emoji firefox networkmanager
 
 systemctl enable NetworkManager.service 
 
