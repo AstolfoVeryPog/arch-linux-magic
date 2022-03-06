@@ -56,8 +56,10 @@ pacman --noconfirm -S grub efibootmgr os-prober dosfstools mtools
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB --removable
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -S xorg-server xorg-xinit nitrogen vim kitty pulseaudio mpv neofetch git ntfs-3g btop nvidia nvidia-settings i3-gaps \
-rofi noto-fonts noto-fonts-emoji firefox networkmanager nodejs npm qbittorrent python-pywal flameshot flatpak element-desktop
+pacman --noconfirm -S xorg-server xorg-xinit nitrogen neovim kitty pulseaudio neofetch ntfs-3g btop \
+
+pacman --noconfirm -S nvidia nvidia-settings i3-gaps rofi noto-fonts noto-fonts-emoji mpv git \
+networkmanager qbittorrent python-pywal flameshot element-desktop
 
 systemctl enable NetworkManager.service 
 
